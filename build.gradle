@@ -1,0 +1,72 @@
+plugins {
+    id 'org.asciidoctor.convert' version '1.5.9.2'
+    id 'org.ajoberstar.git-publish' version '2.0.0'
+    id 'net.researchgate.release' version '2.6.0'
+}
+
+wrapper {
+    gradleVersion = '5.0'
+}
+
+allprojects {
+    group = 'fr.jmini.utils'
+}
+
+def buildDate() {
+    return new Date().format('yyyy-MM-dd')
+}
+
+asciidoctorj {
+    version = "$asciidoctorjVersion"
+}
+
+asciidoctor {
+    sourceDir = file('docs')
+    outputDir = file('build/docs')
+    attributes = ['revdate'             : "${buildDate()}",
+                  'project-version'     : "$version",
+                  'attribute-missing'    : 'warn',
+                  'source-highlighter'  : 'coderay',
+                  'imagesdir'           : '',
+                  'toc'                 : 'left',
+                  'icons'               : 'font',
+                  'toclevels'           : '3',
+                  'sectanchors'         : 'true',
+                  'idprefix'            : '',
+                  'idseparator'         : '-',
+                  'docinfo1'            : 'true']
+    repositories {
+        mavenCentral()
+    }
+    dependencies {
+        asciidoctor "fr.jmini.asciidoctorj:git-link:3.0.0"
+    }
+}
+
+gitPublish {
+    repoUri = 'git@github.com:' + "$githubRepositoryOwner" + '/' + "$githubRepositoryName" + '.git'
+    branch = 'gh-pages'
+
+    contents {
+        from "${file('build/docs/html5')}"
+    }
+
+    preserve {
+        include '.nojekyll'
+        exclude '.DS_Store'
+    }
+
+    commitMessage = "Update the 'gh-pages' branch."
+}
+
+release {
+    buildTasks = ['doRelease']
+}
+
+task doRelease {
+    dependsOn(
+        'publishToNexus',
+        'asciidoctor',
+        'gitPublishPush'
+    )
+}

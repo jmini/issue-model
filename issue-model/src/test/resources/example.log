@@ -1,0 +1,4 @@
+{"fileName":"test.txt","lineStart":190,"lineEnd":195}
+{"fileName":"file.txt","lineRanges":[{"start":10,"end":10},{"start":20,"end":20}]}
+{"fileName":"example.txt","lineStart":10,"severity":"HIGH"}
+{"fileName":"fn.txt","directory":"d","lineStart":10,"lineEnd":11,"columnStart":110,"columnEnd":120,"lineRanges":[{"start":10,"end":11}],"message":"msg","category":"c","type":"t","severity":"LOW","description":"d","packageName":"pn","moduleName":"mdl","origin":"orgn","reference":"ref","fingerprint":"fgpt","additionalProperties":"ap","id":"823b92b6-98eb-41c4-83ce-b6ec1ed6f98f"}
