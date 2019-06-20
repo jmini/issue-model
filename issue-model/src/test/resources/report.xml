@@ -1,0 +1,16 @@
+<report>
+    <issue>
+        <type>TxtChecker</type>
+        <fileName>/tmp/file.txt</fileName>
+        <lineStart>5</lineStart>
+        <severity>ERROR</severity>
+        <message>Token 'aaa' is not expected here</message>
+    </issue>
+    <issue>
+        <type>TxtChecker</type>
+        <fileName>/tmp/file.txt</fileName>
+        <lineStart>6</lineStart>
+        <severity>ERROR</severity>
+        <message>Token 'bbb' is not expected here</message>
+    </issue>
+</report>

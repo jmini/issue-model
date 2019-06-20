@@ -1,4 +1,4 @@
-:rootdir: ../../..
+:rootdir: ../
 :github-readme: {rootdir}/README.adoc
 :srcdir: {rootdir}/src/
 :listing-caption: Listing
@@ -21,7 +21,41 @@ TIP: Do you want to improve this page? Please git-link:self[edit it on GitHub, e
 
 == Description
 
-Several 
+=== Background
+
+Version `5.2.0-SNAPSHOT` of the Jenkins plugin "Warnings Next Generation" supports different inputs with the "Warnings Plugin Native Format" tool.
+
+image:jenkins_configure_job.png[configure the Warnings Next Generation in Jenkins]
+
+If the file ends with `.xml`, the parser will read all `issue` nodes in the `report` root node:
+
+[source, xml]
+----
+include::../issue-model/src/test/resources/report.xml[]
+----
+
+If the file ends with `.json`, a JSON array named `issues` is expected by the parser:
+
+[source, json]
+----
+include::../issue-model/src/test/resources/report.json[]
+----
+
+A third solution is to have each issue serialised as JSON object on each text line.
+This is interesting if you are creating a tool that gets a stream of issues and does not know when this will end.
+In this case this tool can convert the single issues to one-liner JSON and append them to a text file.
+
+[source, txt]
+----
+include::../issue-model/src/test/resources/log.txt[]
+----
+
+This project is about having the model classes that can be serialised as presented here, without any additional dependencies.
+
+=== issue-model project
+
+The project `fr.jmini.utils:issue-model` is only about model classes to represent the issues.
+It has no additional dependencies, meaning that you will need to add in your project a serialisation library such as `com.google.code.gson:gson` to convert the object to JSON.
 
 == Source Code
 

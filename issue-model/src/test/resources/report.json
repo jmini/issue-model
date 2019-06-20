@@ -1,0 +1,18 @@
+{
+    "issues": [
+        {
+            "type": "TxtChecker",
+            "fileName": "/tmp/file.txt",
+            "lineStart": "5",
+            "severity": "ERROR",
+            "message": "Token 'aaa' is not expected here"
+        },
+        {
+            "type": "TxtChecker",
+            "fileName": "/tmp/file.txt",
+            "lineStart": "6",
+            "severity": "ERROR",
+            "message": "Token 'bbb' is not expected here"
+        }
+    ]
+}

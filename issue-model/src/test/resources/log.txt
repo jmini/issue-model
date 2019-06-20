@@ -1,0 +1,2 @@
+{"fileName":"file.txt","lineStart":"5","severity":"ERROR","message":"Token 'aaa' is wrong"}
+{"fileName":"file.txt","lineStart":"6","severity":"ERROR","message":"Token 'bbb' is wrong"}
