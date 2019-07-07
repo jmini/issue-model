@@ -23,7 +23,7 @@ TIP: Do you want to improve this page? Please git-link:self[edit it on GitHub, e
 
 === Background
 
-Version `5.2.0-SNAPSHOT` of the Jenkins plugin "Warnings Next Generation" supports different inputs with the "Warnings Plugin Native Format" tool.
+Version `5.2.0` of the Jenkins plugin link:https://github.com/jenkinsci/warnings-ng-plugin["Warnings Next Generation"] supports different inputs with the "Warnings Plugin Native Format" tool.
 
 image:jenkins_configure_job.png[configure the Warnings Next Generation in Jenkins]
 

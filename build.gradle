@@ -2,6 +2,7 @@ plugins {
     id 'org.asciidoctor.convert' version '2.2.0'
     id 'org.ajoberstar.git-publish' version '2.0.0'
     id 'net.researchgate.release' version '2.6.0'
+    id 'de.marcphilipp.nexus-publish' version '0.2.0'
 }
 
 wrapper {
@@ -64,13 +65,20 @@ gitPublish {
     commitMessage = "Update the 'gh-pages' branch."
 }
 
+nexusPublishing {
+    packageGroup = 'fr.jmini'
+    username = project.findProperty('sonatypeUser') ?: ''
+    password = project.findProperty('sonatypePassword') ?: ''
+}
+
 release {
     buildTasks = ['doRelease']
 }
 
 task doRelease {
     dependsOn(
-        'publishToNexus',
+        'issue-model:clean',
+        'issue-model:publishToNexus',
         'asciidoctor',
         'gitPublishPush'
     )

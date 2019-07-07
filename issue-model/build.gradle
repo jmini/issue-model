@@ -2,7 +2,7 @@ plugins {
     id 'java'
     id 'maven-publish'
     id 'signing'
-    id 'de.marcphilipp.nexus-publish' version '0.2.0'
+    id 'de.marcphilipp.nexus-publish'
 }
 
 sourceCompatibility = 1.8
